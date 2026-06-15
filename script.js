@@ -293,3 +293,35 @@ function updateFriendshipCounter() {
 }
 
 updateFriendshipCounter();
+
+// Load saved message automatically
+window.addEventListener("load", () => {
+    const saved = localStorage.getItem("birthdayGuestBook");
+
+    if (saved) {
+        document.getElementById("guestMessage").value = saved;
+        document.getElementById("savedMessage").innerText = saved;
+    }
+});
+
+// Save message
+function saveGuestBook() {
+    const text = document.getElementById("guestMessage").value;
+
+    localStorage.setItem("birthdayGuestBook", text);
+
+    document.getElementById("savedMessage").innerText = text;
+
+    alert("💖 Message Saved Forever (on this browser)!");
+}
+
+// Clear message
+function clearGuestBook() {
+    localStorage.removeItem("birthdayGuestBook");
+
+    document.getElementById("guestMessage").value = "";
+
+    document.getElementById("savedMessage").innerText = "";
+
+    alert("🗑 Message Cleared!");
+}

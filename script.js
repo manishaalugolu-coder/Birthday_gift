@@ -325,3 +325,7 @@ function clearGuestBook() {
 
     alert("🗑 Message Cleared!");
 }
+saveBtn.innerHTML = "💖 Saved!";
+setTimeout(() => {
+    saveBtn.innerHTML = "💾 Save Message";
+}, 1500);

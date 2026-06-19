@@ -670,3 +670,68 @@ body {
     color:#ff4081;
     font-size: 18px;
 }
+
+#lockScreen{
+    position:fixed;
+    inset:0;
+    z-index:9999;
+    background:linear-gradient(135deg,#ff9a9e,#fecfef);
+}
+
+.lock-container{
+    height:100vh;
+    display:flex;
+}
+
+.lock-photo{
+    flex:1;
+}
+
+.lock-photo img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+
+.lock-box{
+    flex:1;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    background:white;
+}
+
+.lock-box h1{
+    color:#ff4f87;
+}
+
+#pinDisplay{
+    width:180px;
+    height:50px;
+    text-align:center;
+    font-size:24px;
+    margin:20px;
+    border-radius:15px;
+    border:2px solid pink;
+}
+
+.keypad{
+    display:grid;
+    grid-template-columns:repeat(3,80px);
+    gap:10px;
+}
+
+.keypad button{
+    height:60px;
+    border:none;
+    border-radius:15px;
+    background:#ff4f87;
+    color:white;
+    font-size:22px;
+    cursor:pointer;
+}
+
+.keypad button:hover{
+    transform:scale(1.05);
+}

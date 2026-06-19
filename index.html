@@ -14,6 +14,50 @@
 </head>
 
 <body>
+   <div id="lockScreen">
+    <!-- Lock Screen Content Here -->
+      <div class="lock-container">
+
+    <div class="lock-photo">
+        <img src="images/image_7.png" alt="Birthday Girl">
+    </div>
+
+    <div class="lock-box">
+
+        <h1>💖 Birthday Surprise 💖</h1>
+
+        <p>Enter the Secret Code</p>
+
+        <input type="password" id="pinDisplay" readonly>
+
+        <div class="keypad">
+
+            <button onclick="addNumber('1')">1</button>
+            <button onclick="addNumber('2')">2</button>
+            <button onclick="addNumber('3')">3</button>
+
+            <button onclick="addNumber('4')">4</button>
+            <button onclick="addNumber('5')">5</button>
+            <button onclick="addNumber('6')">6</button>
+
+            <button onclick="addNumber('7')">7</button>
+            <button onclick="addNumber('8')">8</button>
+            <button onclick="addNumber('9')">9</button>
+
+            <button onclick="clearPin()">⌫</button>
+            <button onclick="addNumber('0')">0</button>
+            <button onclick="checkPin()">🔓</button>
+
+        </div>
+
+        <p id="pinMessage"></p>
+
+    </div>
+
+</div>
+   </div>
+
+   <div id="mainContent" style="display:none;">
     <!-- Floating Background Particles -->
     <div class="particles" id="particles"></div>
 
@@ -224,7 +268,7 @@
     </footer>
 
     <script src="script.js"></script>
-</body>
+
 <!-- Background Music -->
 <audio id="birthdaySong" loop>
     <source src="song_1.mp3" type="audio/mpeg">
@@ -235,4 +279,6 @@
 <button id="musicBtn" class="music-btn">
     ❤️ Our Song 🎶
 </button>
+   </div>
+</body>
 </html>

@@ -358,7 +358,7 @@ function clearPin(){
 
 function checkPin(){
 
-    if(enteredPin === "1208"){
+    if(enteredPin === "2106"){
 
         document.getElementById("lockScreen").style.display = "none";
         document.getElementById("mainContent").style.display = "block";

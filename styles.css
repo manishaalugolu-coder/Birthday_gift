@@ -735,3 +735,21 @@ body {
 .keypad button:hover{
     transform:scale(1.05);
 }
+
+.profile-photo{
+    margin-bottom:20px;
+}
+.profile-photo img{
+    width:180px;
+    height:220px;
+    object-fit:cover;
+    padding:10px;
+    background:white;
+    border-radius:15px;
+    box-shadow:0 15px 30px rgba(0,0,0,0.2);
+    transform:rotate(-3deg);
+}
+
+.profile-photo img:hover{
+    transform:scale(1.05);
+}

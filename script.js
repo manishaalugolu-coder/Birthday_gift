@@ -336,6 +336,17 @@ async function saveGuestBook() {
     alert("💖 Message Saved!");
 }
 
+// Clear message
+function clearGuestBook() {
+    localStorage.removeItem("birthdayGuestBook");
+
+    document.getElementById("guestMessage").value = "";
+
+    document.getElementById("savedMessage").innerText = "";
+
+    alert("🗑 Message Cleared!");
+}
+
 function addNumber(num){
 
     if(enteredPin.length < 4){

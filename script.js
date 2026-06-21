@@ -1,3 +1,4 @@
+import { db, collection, addDoc, getDocs } from "./firebase.js";
 console.log("JS Loaded");document.addEventListener('DOMContentLoaded',function () {
     createParticles();
     initializeAnimations();
@@ -295,24 +296,44 @@ function updateFriendshipCounter() {
 updateFriendshipCounter();
 
 // Load saved message automatically
-window.addEventListener("load", () => {
-    const saved = localStorage.getItem("birthdayGuestBook");
+window.addEventListener("load", loadMessage);
 
-    if (saved) {
-        document.getElementById("guestMessage").value = saved;
-        document.getElementById("savedMessage").innerText = saved;
+async function loadMessage(){
+
+    const docSnap =
+        await getDoc(
+            doc(db, "guestbook", "message")
+        );
+
+    if(docSnap.exists()){
+
+        const data = docSnap.data();
+
+        document.getElementById("guestMessage").value =
+            data.text;
+
+        document.getElementById("savedMessage").innerText =
+            data.text;
     }
-});
+}
 
 // Save message
-function saveGuestBook() {
-    const text = document.getElementById("guestMessage").value;
+async function saveGuestBook() {
 
-    localStorage.setItem("birthdayGuestBook", text);
+    const text =
+        document.getElementById("guestMessage").value;
 
-    document.getElementById("savedMessage").innerText = text;
+    await setDoc(
+        doc(db, "guestbook", "message"),
+        {
+            text: text
+        }
+    );
 
-    alert("💖 Message Saved Forever (on this browser)!");
+    document.getElementById("savedMessage")
+        .innerText = text;
+
+    alert("💖 Message Saved!");
 }
 
 // Clear message

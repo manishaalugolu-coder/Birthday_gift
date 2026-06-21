@@ -1,4 +1,3 @@
-import { db, doc, setDoc, getDoc } from "./firebase.js";
 console.log("JS Loaded");document.addEventListener('DOMContentLoaded',function () {
     createParticles();
     initializeAnimations();
@@ -296,44 +295,24 @@ function updateFriendshipCounter() {
 updateFriendshipCounter();
 
 // Load saved message automatically
-window.addEventListener("load", loadMessage);
+window.addEventListener("load", () => {
+    const saved = localStorage.getItem("birthdayGuestBook");
 
-async function loadMessage(){
-
-    const docSnap =
-        await getDoc(
-            doc(db, "guestbook", "message")
-        );
-
-    if(docSnap.exists()){
-
-        const data = docSnap.data();
-
-        document.getElementById("guestMessage").value =
-            data.text;
-
-        document.getElementById("savedMessage").innerText =
-            data.text;
+    if (saved) {
+        document.getElementById("guestMessage").value = saved;
+        document.getElementById("savedMessage").innerText = saved;
     }
-}
-window.addEventListener("load", loadMessage);
+});
+
 // Save message
-async function saveGuestBook() {
+function saveGuestBook() {
+    const text = document.getElementById("guestMessage").value;
 
-    const text =
-        document.getElementById("guestMessage").value;
+    localStorage.setItem("birthdayGuestBook", text);
 
-    await setDoc(
-        doc(db, "guestbook", "message"),
-        {
-            text: text
-        }
-    );
+    document.getElementById("savedMessage").innerText = text;
 
-    document.getElementById("savedMessage")
-        .innerText = text;
-
-    alert("💖 Message Saved!");
+    alert("💖 Message Saved Forever (on this browser)!");
 }
 
 // Clear message
@@ -346,6 +325,16 @@ function clearGuestBook() {
 
     alert("🗑 Message Cleared!");
 }
+const saveBtn = document.querySelector(".save-btn");
+
+if(saveBtn){
+    saveBtn.innerHTML = "💖 Saved!";
+
+    setTimeout(() => {
+        saveBtn.innerHTML = "💾 Save Message";
+    }, 1500);
+}
+
 let enteredPin = "";
 
 function addNumber(num){
@@ -355,7 +344,7 @@ function addNumber(num){
         enteredPin += num;
 
         document.getElementById("pinDisplay").value =
-            "*".repeat(enteredPin.length);
+        "*".repeat(enteredPin.length);
     }
 }
 
@@ -364,25 +353,24 @@ function clearPin(){
     enteredPin = enteredPin.slice(0,-1);
 
     document.getElementById("pinDisplay").value =
-        "*".repeat(enteredPin.length);
+    "*".repeat(enteredPin.length);
 }
 
 function checkPin(){
 
     if(enteredPin === "2106"){
 
-        document.getElementById("lockScreen").style.display = "none";
-        document.getElementById("mainContent").style.display = "block";
+        document.getElementById("lockScreen").style.display="none";
+
+        document.getElementById("mainContent").style.display="block";
 
     }else{
 
         document.getElementById("pinMessage").innerHTML =
-            "❌ Wrong PIN";
+        "❌ Wrong PIN";
 
         enteredPin = "";
+
         document.getElementById("pinDisplay").value = "";
     }
 }
-window.addNumber = addNumber;
-window.clearPin = clearPin;
-window.checkPin = checkPin;

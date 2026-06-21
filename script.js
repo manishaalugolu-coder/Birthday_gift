@@ -382,3 +382,6 @@ function checkPin(){
         document.getElementById("pinDisplay").value = "";
     }
 }
+window.addNumber = addNumber;
+window.clearPin = clearPin;
+window.checkPin = checkPin;

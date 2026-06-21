@@ -347,6 +347,7 @@ function clearGuestBook() {
 
     alert("🗑 Message Cleared!");
 }
+let enteredPin = "";
 
 function addNumber(num){
 

@@ -336,6 +336,11 @@ async function saveGuestBook() {
 
     alert("💖 Message Saved!");
 }
+ catch (error) {
+        console.log(error);
+        alert("Error: " + error.message);
+    }
+}
 
 // Clear message
 function clearGuestBook() {

@@ -1,4 +1,3 @@
-alert("Script Loaded");
 import { db, doc, setDoc, getDoc } from "./firebase.js";
 console.log("JS Loaded");document.addEventListener('DOMContentLoaded',function () {
     createParticles();
@@ -335,11 +334,6 @@ async function saveGuestBook() {
         .innerText = text;
 
     alert("💖 Message Saved!");
-}
- catch (error) {
-        console.log(error);
-        alert("Error: " + error.message);
-    }
 }
 
 // Clear message

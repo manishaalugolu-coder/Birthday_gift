@@ -336,28 +336,6 @@ async function saveGuestBook() {
     alert("💖 Message Saved!");
 }
 
-// Clear message
-function clearGuestBook() {
-    localStorage.removeItem("birthdayGuestBook");
-
-    document.getElementById("guestMessage").value = "";
-
-    document.getElementById("savedMessage").innerText = "";
-
-    alert("🗑 Message Cleared!");
-}
-const saveBtn = document.querySelector(".save-btn");
-
-if(saveBtn){
-    saveBtn.innerHTML = "💖 Saved!";
-
-    setTimeout(() => {
-        saveBtn.innerHTML = "💾 Save Message";
-    }, 1500);
-}
-
-let enteredPin = "";
-
 function addNumber(num){
 
     if(enteredPin.length < 4){

@@ -1,3 +1,4 @@
+alert("Script Loaded");
 import { db, doc, setDoc, getDoc } from "./firebase.js";
 console.log("JS Loaded");document.addEventListener('DOMContentLoaded',function () {
     createParticles();

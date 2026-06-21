@@ -3,12 +3,13 @@ import { initializeApp } from
 
 import {
   getFirestore,
+  collection,
+  addDoc,
+  getDocs,
   doc,
   setDoc,
   getDoc
-}
-from
-"https://www.gstatic.com/firebasejs/12.5.0/firebase-firestore.js";
+} from "https://www.gstatic.com/firebasejs/12.5.0/firebase-firestore.js";
 
 const firebaseConfig = {
   apiKey: "AIzaSyCxRX9gAx9zkL3P3K7rK9QKfsgtRufZA_E",
@@ -23,8 +24,11 @@ const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
 export {
-  db,
-  doc,
-  setDoc,
-  getDoc
+    db,
+    doc,
+    setDoc,
+    getDoc,
+    collection,
+    addDoc,
+    getDocs
 };

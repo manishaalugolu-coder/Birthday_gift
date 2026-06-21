@@ -1,4 +1,4 @@
-import { db, collection, addDoc, getDocs } from "./firebase.js";
+import { db, doc, setDoc, getDoc } from "./firebase.js";
 console.log("JS Loaded");document.addEventListener('DOMContentLoaded',function () {
     createParticles();
     initializeAnimations();
@@ -316,7 +316,7 @@ async function loadMessage(){
             data.text;
     }
 }
-
+window.addEventListener("load", loadMessage);
 // Save message
 async function saveGuestBook() {
 
